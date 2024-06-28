@@ -12,9 +12,9 @@ You may find this configuration useful if you don't want to install pfBlockerNG 
 ssh to the firewall to create the dnsmasq directory and script directory:
 
 ```sh
-[24.03-RELEASE][admin@pf100.local]/root: mkdir bin
-[24.03-RELEASE][admin@pf100.local]/root: mkdir -p /usr/local/etc/dnsmasq/dnshole
-[24.03-RELEASE][admin@pf100.local]/root: mkdir /usr/local/etc/dnsmasq/hosts
+mkdir /root/bin
+mkdir -p /usr/local/etc/dnsmasq/dnshole
+mkdir /usr/local/etc/dnsmasq/hosts
 ```
 
 This confiuration is using the oisd big list and oisd NSFW list in dnsmasq format.
