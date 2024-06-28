@@ -25,7 +25,7 @@ It is also using StevenBlack hosts list.
 
 The script can be modified to support any number of dnsmasq formatted domain lists or hosts lists.
 
-Connect to pfSense and edit `/root/bin/dnshole.sh`:
+Connect to pfSense and edit `/root/bin/dnshole.sh` In the GUI go to Diagnostics --> Edit File:
 
 ```bash
 #!/usr/bin/env sh
