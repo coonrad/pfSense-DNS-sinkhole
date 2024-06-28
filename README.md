@@ -92,9 +92,9 @@ Host example.domain not found: 3(NXDOMAIN)
 
 ## Configuration Notes
 
-If you upgrade or re-install pfSense you will lose the `/root/bin` directory and `/usr/local/etc/dnsmasq`. So you should back these up beforehand. Here's an example using rsync.
+If you upgrade or reinstall pfSense you will lose the `/root/bin` directory and `/usr/local/etc/dnsmasq`. So you should back these up beforehand. Here's an example using rsync.
 
-Install rsync on pfSense `pkg install rsync`. From your backup host save and run the following:
+Install rsync on pfSense `pkg install rsync`. From your backup host save and run the following (edit the destination directory `/Volumes/backups/pfSense` to your desired location):
 
 ```sh
 #!/usr/bin/env sh
