@@ -16,3 +16,36 @@ ssh to the firewall to create the dnsmasq directory and script directory:
 [24.03-RELEASE][admin@pf100.local]/root: mkdir -p /usr/local/etc/dnsmasq/dnshole
 [24.03-RELEASE][admin@pf100.local]/root: mkdir /usr/local/etc/dnsmasq/hosts
 ```
+
+This confiuration is using the oisd big list and oisd NSFW list in dnsmasq format.
+It is also using StevenBlack hosts list.
+
+- [oisd](https://oisd.nl/)
+- [StevenBlack](https://github.com/StevenBlack/hosts)
+
+The script can be modified to support any number of dnsmasq formatted domain lists or hosts lists.
+
+Connect to pfSense and edit `/root/bin/dnshole.sh`:
+
+```bash
+#!/usr/bin/env sh
+
+# update blocklists and hosts files
+curl -sflo /usr/local/etc/dnsmasq/dnshole/oisd https://big.oisd.nl/dnsmasq2
+curl -sflo /usr/local/etc/dnsmasq/dnshole/oisd_nsfw https://nsfw.oisd.nl/dnsmasq2
+curl -sflo /usr/local/etc/dnsmasq/hosts/sblack https://raw.githubusercontent.com/StevenBlack/hosts/master/hosts
+
+# restart dnsmasq
+pfSsh.php playback svc restart dnsmasq
+```
+
+Make the script executable and run it:
+
+```bash
+chmod +x /root/bin/dnshole.sh && /root/bin/dnshole.sh
+```
+
+Configure cron to run the script at the desired time and interval. From the GUI, Service --> Cron --> Add.
+
+![cron.jpg](cron.jpg)
+
