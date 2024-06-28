@@ -45,7 +45,7 @@ Make the script executable and run it:
 chmod +x /root/bin/dnshole.sh && /root/bin/dnshole.sh
 ```
 
-Configure cron to run the script at the desired time and interval. From the GUI, Service --> Cron --> Add.
+Configure cron to run the script at the desired time and interval. From the GUI, Service --> Cron --> Add.<br>
 In this case the `dnshole.sh` is being run once a day at 8AM.
 
 ![cron.jpg](cron.jpg)
