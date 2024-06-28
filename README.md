@@ -62,3 +62,28 @@ conf-file=/usr/local/etc/dnsmasq/dnshole/oisd_nsfw
 
 ![dnsmasq.jpg](dnsmasq.jpg)
 
+At this point DNS Forwarder should be configured to sink all the contents of the hosts and domain lists. Select a domain from the list and test.
+
+```bash
+[user@mypc]~$ host example.domain
+Host example.domain not found: 3(NXDOMAIN)
+
+[user@mypc]~$ dig @192.168.1.1 example.domain
+
+; <<>> DiG 9.10.6 <<>> @192.168.1.1 example.domain
+; (1 server found)
+;; global options: +cmd
+;; Got answer:
+;; ->>HEADER<<- opcode: QUERY, status: NXDOMAIN, id: 26437
+;; flags: qr rd ra; QUERY: 1, ANSWER: 0, AUTHORITY: 0, ADDITIONAL: 1
+
+;; OPT PSEUDOSECTION:
+; EDNS: version: 0, flags:; udp: 1232
+;; QUESTION SECTION:
+;example.domain.			IN	A
+
+;; Query time: 0 msec
+;; SERVER: 192.168.1.1#53(192.168.1.1)
+;; WHEN: Thu Jun 27 19:31:00 PDT 2024
+;; MSG SIZE  rcvd: 37
+```
