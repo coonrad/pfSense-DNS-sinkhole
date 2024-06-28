@@ -102,11 +102,9 @@ Install rsync on pfSense `pkg install rsync`. From your backup host save and run
 
 rsync -avz \
     --rsync-path="rsync" \
-    --delete \
     root@192.168.1.1:/usr/local/etc/dnsmasq /Volumes/backups/pfSense
 rsync -avz \
     --rsync-path="rsync" \
-    --delete \
     root@192.168.1.1:/root/bin /Volumes/backups/pfSense
 ```
 
