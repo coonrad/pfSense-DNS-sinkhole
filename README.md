@@ -5,4 +5,13 @@ You may find this configuration useful if you don't want to install pfBlockerNG 
 
 ## Setup
 
-- enable DNS forarder: [DNS Forwarder Configuration](https://docs.netgate.com/pfsense/en/latest/services/dns/forwarder-config.html)
+- enable DNS forwarder: [DNS Forwarder Configuration](https://docs.netgate.com/pfsense/en/latest/services/dns/forwarder-config.html)
+- enable SSH to pfSense: [Enable SSH via GUI](https://docs.netgate.com/pfsense/en/latest/recipes/ssh-access.html#enable-ssh-via-gui)
+
+ssh to the firewall to create the dnsmasq directory and script directory:
+
+```sh
+[24.03-RELEASE][admin@pf100.local]/root: mkdir bin
+[24.03-RELEASE][admin@pf100.local]/root: mkdir -p /usr/local/etc/dnsmasq/dnshole
+[24.03-RELEASE][admin@pf100.local]/root: mkdir /usr/local/etc/dnsmasq/hosts
+```
