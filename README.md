@@ -7,6 +7,7 @@ You may find this configuration useful if you don't want to install pfBlockerNG 
 
 - enable DNS forwarder: [DNS Forwarder Configuration](https://docs.netgate.com/pfsense/en/latest/services/dns/forwarder-config.html)
 - enable SSH to pfSense: [Enable SSH via GUI](https://docs.netgate.com/pfsense/en/latest/recipes/ssh-access.html#enable-ssh-via-gui)
+- install Cron package: `pkg install pfSense-pkg-Cron`
 
 ssh to the firewall to create the dnsmasq directory and script directory:
 
