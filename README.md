@@ -3,7 +3,7 @@ pfSense DNS forwarder configuration for blocking hosts and domains.
 
 You may find this configuration useful if you don't want to install pfBlockerNG on your firewall, or manage an external DNS sinkhole like Pi-hole. It also has the advantage of being able to manage a large number of dns overrides without having to manually add and remove them from the pfSense GUI.
 
-## Setup
+## Setup shell script to download and update host & domain lists
 
 - enable DNS forwarder: [DNS Forwarder Configuration](https://docs.netgate.com/pfsense/en/latest/services/dns/forwarder-config.html)
 - enable SSH to pfSense: [Enable SSH via GUI](https://docs.netgate.com/pfsense/en/latest/recipes/ssh-access.html#enable-ssh-via-gui)
@@ -49,4 +49,16 @@ Configure cron to run the script at the desired time and interval. From the GUI,
 In this case the `dnshole.sh` is being run once a day at 8AM.
 
 ![cron.jpg](cron.jpg)
+
+## Configure DNS Forwarder to read the host & domain lists
+
+In the GUI, navigate to Service --> DNS Forwarder. Scroll to the bottom and add the following to custom options. Save.
+
+```bash
+addn-hosts=/usr/local/etc/dnsmasq/hosts/
+conf-file=/usr/local/etc/dnsmasq/dnshole/oisd
+conf-file=/usr/local/etc/dnsmasq/dnshole/oisd_nsfw
+```
+
+![dnsmasq.jpg](dnsmasq.jpg)
 
