@@ -60,9 +60,11 @@ conf-file=/usr/local/etc/dnsmasq/dnshole/oisd
 conf-file=/usr/local/etc/dnsmasq/dnshole/oisd_nsfw
 ```
 
+Note that you can dump any number of hosts files in the `hosts` directory without needing to modify the custom options. If you add a dnsmasq formatted list to `dnshole` you will need to specify that as a `conf-file` in the custom options. The `hosts` directory is also where you would want to store the hosts file to resolve your local network from the firewall. (This list could be hundreds or thousands of entries, that normally would need to be entered in the host overrides section of the GUI).
+
 ![dnsmasq.jpg](dnsmasq.jpg)
 
-At this point DNS Forwarder should be configured to sink all the contents of the hosts and domain lists. Select a domain from the list and test.
+At this point DNS Forwarder should be configured to sink all the contents of the hosts and domain lists. Select a host or domain from the lists and test.
 
 ```bash
 [user@mypc]~$ host example.domain
@@ -87,3 +89,23 @@ Host example.domain not found: 3(NXDOMAIN)
 ;; WHEN: Thu Jun 27 19:31:00 PDT 2024
 ;; MSG SIZE  rcvd: 37
 ```
+
+## Configuration Notes
+
+If you upgrade or re-install pfSense you will lose the `/root/bin` directory and `/usr/local/etc/dnsmasq`. So you should back these up beforehand. Here's an example using rsync.
+
+Install rsync on pfSense `pkg install rsync`. From your backup host save and run the following:
+
+```sh
+#!/usr/bin/env sh
+
+rsync -avz \
+    --rsync-path="rsync" \
+    --delete \
+    root@192.168.1.1:/usr/local/etc/dnsmasq /Volumes/backups/pfSense
+rsync -avz \
+    --rsync-path="rsync" \
+    --delete \
+    root@192.168.1.1:/root/bin /Volumes/backups/pfSense
+```
+
