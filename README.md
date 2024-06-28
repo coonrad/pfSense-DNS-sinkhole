@@ -17,7 +17,7 @@ mkdir -p /usr/local/etc/dnsmasq/dnshole
 mkdir /usr/local/etc/dnsmasq/hosts
 ```
 
-This confiuration is using the oisd big list and oisd NSFW list in dnsmasq format.
+This confiuration is using the oisd big list and oisd NSFW list in dnsmasq format.<br>
 It is also using StevenBlack hosts list.
 
 - [oisd](https://oisd.nl/)
