@@ -23,7 +23,7 @@ It is also using StevenBlack hosts list.
 - [oisd](https://oisd.nl/)
 - [StevenBlack](https://github.com/StevenBlack/hosts)
 
-The script can be modified to support any number of dnsmasq formatted domain lists or hosts lists.
+The script can be modified to support any number of dnsmasq formatted domain lists or hosts lists. You can also create your own custom hosts and domain lists. Inspect the existing lists for the proper format.
 
 Connect to pfSense and edit `/root/bin/dnshole.sh` In the GUI go to Diagnostics --> Edit File:
 
