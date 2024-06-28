@@ -46,7 +46,7 @@ chmod +x /root/bin/dnshole.sh && /root/bin/dnshole.sh
 ```
 
 Configure cron to run the script at the desired time and interval. From the GUI, Service --> Cron --> Add.<br>
-In this case the `dnshole.sh` is being run once a day at 8AM.
+In this case `dnshole.sh` is being run once a day at 8AM.
 
 ![cron.jpg](cron.jpg)
 
@@ -94,7 +94,8 @@ Host example.domain not found: 3(NXDOMAIN)
 
 If you upgrade or reinstall pfSense you will lose the `/root/bin` directory and `/usr/local/etc/dnsmasq`. So you should back these up beforehand. Here's an example using rsync.
 
-Install rsync on pfSense `pkg install rsync`. From your backup host save and run the following (edit the destination directory `/Volumes/backups/pfSense` to your desired location):
+Install rsync on pfSense `pkg install rsync`. From your backup host save and run the following:
+(Modify the IP address and destination directory `/Volumes/backups/pfSense` to match your environment.)
 
 ```sh
 #!/usr/bin/env sh
